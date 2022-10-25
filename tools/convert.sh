@@ -1,8 +1,10 @@
-#!/bin/bash
-echo "HTML(readlightnovels.net) TO eBOOK(.epub) CONVERTER"
-echo "Dmytro Vakhitov"
 echo "Converting 'html/volume-*.html' to 'out/vol*.epub'"
-for i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+cd ..
+mv -r out out.old
+mkdir out
+chap=$1
+i=1
+while [ $i -lt $chap ]
 do
   MYASS=$i
   echo "\n - Volume $MYASS"
@@ -22,4 +24,6 @@ do
   rm vol-$MYASS.nvl
   printf "created epub: "
   find out/vol$MYASS.epub
+    i=$((i+1))
 done
+rm -r html
