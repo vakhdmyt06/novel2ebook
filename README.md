@@ -1,6 +1,6 @@
 # novel2ebook
 Novel(readlightnovels.net) to eBook Converter
-RUNS ONLY ON LINUX
+RUNS ONLY ON LINUX, only supports Volume sorted Novels
 
 Requirements:
 pandoc
