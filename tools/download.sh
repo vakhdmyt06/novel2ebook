@@ -12,5 +12,7 @@ do
     wget -q $1/volume-$i.html
     i=$((i+1))
 done
-cd ../tools
-sh convert.sh $chap
+cd ../
+sh tools/imagefix.sh $chap
+sh tools/convert.sh $chap
+echo "DONE!"

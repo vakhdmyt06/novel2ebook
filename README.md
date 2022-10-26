@@ -4,7 +4,8 @@ RUNS ONLY ON LINUX, only supports Volume sorted Novels
 
 Requirements:
 pandoc
-(Ubuntu) sudo apt install pandoc -y
+gridsite-clients
+(Ubuntu) sudo apt install pandoc gridsite-clients -y
 
 Run:
 run novl2epub.sh, and follow the instructions
