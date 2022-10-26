@@ -15,4 +15,5 @@ done
 cd ../
 sh tools/imagefix.sh $chap
 sh tools/convert.sh $chap
+sh tools/combine.sh $chap
 echo "DONE!"
