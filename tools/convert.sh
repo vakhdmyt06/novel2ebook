@@ -4,7 +4,7 @@ mkdir temp
 mkdir out
 chap=$1
 i=1
-while [ $i -lt $chap ]
+while [ $i -lt $chap ]   
 do
   MYASS=$i
   echo "- Volume $MYASS"
