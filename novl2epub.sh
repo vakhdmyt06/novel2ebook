@@ -1,9 +1,9 @@
 #!/bin/bash
 arg_link=$1
 arg_maxchap=$2
-if [ $3 -eq "1" ]; 
+if [ "$3" = "1" ]; 
 then arg_skipimg=$3
-else arg_skipimg=0
+else arg_skipimg="0"
 fi
 echo "HTML(readlightnovels.net) TO eBOOK(.epub) CONVERTER"
 echo "Dmytro Vakhitov"
@@ -18,5 +18,5 @@ if [ $# -eq "0" ]; then
   echo "the old 'out/' will be moved to 'out.old', old 'out.old' will be erased."
 else
   echo "Starting..."
-  sh tools/download.sh $arg_link $arg_maxchap $arg_skipimg
+  bash tools/download.sh $arg_link $arg_maxchap $arg_skipimg
 fi

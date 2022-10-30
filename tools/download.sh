@@ -17,8 +17,8 @@ if [ "$3" = "1" ];
 then echo "# Skipping image fix"
 else 
 	echo "# Downloading images"
-	sh tools/imagefix.sh $chap
+	bash tools/imagefix.sh $chap
 fi
-sh tools/convert.sh $chap
-#sh tools/combine.sh $chap
+bash tools/convert.sh $chap
+#bash tools/combine.sh $chap
 echo "# Conversion DONE, files can be found at 'out/volX.epub'"

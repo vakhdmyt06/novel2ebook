@@ -9,10 +9,9 @@ while [ $i -lt $chap ]
 do
   MYASS=$i
   echo "- Volume $MYASS"
-  cp html/volume-$MYASS.html volume-$MYASS.temp
-  sed -i 's/><\/div>/><\/div>\n<p>PAGE<\/p>/g' volume-$MYASS.temp
+  cp html/volume-$MYASS.html temp/volume-$MYASS.temp
+  sed -i 's/><\/div>/><\/div>\n<p>PAGE<\/p>/g' temp/volume-$MYASS.temp
   sed -e '1,/<div class="chapter-content">/ d;/<ol>/Q' volume-$MYASS.temp > temp/vol-$MYASS.nvl
-  rm volume-$MYASS.temp
   echo "making epub"
   cd html
   pandoc --extract-media out/media --request-header User-Agent:"Firefox/106.0"--self-contained -f  html -t epub3 --metadata title="Mushoku Tensei: Jobless Reincarnation | Vol. $MYASS" -o ../out/vol$MYASS.epub ../temp/vol-$MYASS.nvl
