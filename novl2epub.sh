@@ -1,7 +1,13 @@
 #!/bin/bash
+arg_link=$1
+arg_maxchap=$2
+if [ $3 -eq "1" ]; 
+then arg_skipimg=$3
+else arg_skipimg=0
+fi
 echo "HTML(readlightnovels.net) TO eBOOK(.epub) CONVERTER"
 echo "Dmytro Vakhitov"
-echo "$2$3"
+echo "  LINK=$arg_link\n  ARG=$arg_maxchap$arg_skipimg"
 if [ $# -eq "0" ]; then 
   echo "ERROR"
   echo "SYNTAX: $0 <https://lightnovels.net/nameofnovel> <amount of \$i> <SKIP IMAGE DOWNLOAD>"
@@ -12,5 +18,5 @@ if [ $# -eq "0" ]; then
   echo "the old 'out/' will be moved to 'out.old', old 'out.old' will be erased."
 else
   echo "Starting..."
-  sh tools/download.sh $1 $2 $3
+  sh tools/download.sh $arg_link $arg_maxchap $arg_skipimg
 fi

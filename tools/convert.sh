@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "# cutting and converting 'html' to 'epub'"
+mv out .out.old
 mkdir temp
 mkdir out
 chap=$1

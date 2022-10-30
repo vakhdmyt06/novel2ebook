@@ -5,7 +5,7 @@ cd html
 chap=$2
 chap=$((chap+1))
 i=1
-echo "# Download Novel '$1'"
+echo "# Download Novel HTML"
 while [ $i -lt $chap ]
 do
     echo "Download Volume-$i"

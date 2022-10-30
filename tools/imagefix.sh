@@ -18,8 +18,8 @@ do
 	  curl -0 -s $imglink -o html/media/$imgname
 	  imgquote=$(grep -n -E "<li><img src=\"https:.*jpg|<li><img src=\"https:.*png" html/volume-$i.html | grep -ho "width height.*>.*<" | cut -f1 -d: | head -n1)
 	  imgreplace="<li><img src=\"media\/$imgname\" $imgquote\/li>"
-	  sed -i "${var1}s/<li><img src=\"https:.*/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   /" html/volume-$i.html
-	  sed -i "${var1}s/<li><img src=\"https:.*/${imgreplace}/" html/volume-$i.html
+	  sed -i "${var1}s/<li><img src=\"https:.*/dmytrohas                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   apaperhoe/" html/volume-$i.html
+	  sed -i "${var1}s/dmytrohas.*apaperhoe/${imgreplace}/" html/volume-$i.html
 	  var1=$(grep -n "<li><img src=\"https:.*jpg\|<li><img src=\"https:.*png" html/volume-$i.html | cut -f1 -d: | head -n1)
 	  x=$((x+1))
 	done
@@ -31,9 +31,9 @@ do
 	  imglink=$(echo "$imglink" | tr -d '"')
 	  curl -0 -s $imglink -o html/media/$imgname
 	  imgquote=$(grep -n -E "<p><img src=\"https:.*jpg|<p><img src=\"https:.*png" html/volume-$i.html | grep -ho "width height.*>.*<" | cut -f1 -d: | head -n1)
-	  imgreplace="<p><img src=\"media\/$imgname\" $imgquote\/p>"
-	  sed -i "${var}s/<p><img src=\"https:.*/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   /" html/volume-$i.html
-	  sed -i "${var}s/<p><img src=\"https:.*/${imgreplace}/" html/volume-$i.html
+	  imgreplace="<p><img src=\"media\/$imgname\" $imgquote<\/p>"
+	  sed -i "${var}s/<p><img src=\"https:.*/dmytrohas                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   apaperhoe/" html/volume-$i.html
+	  sed -i "${var}s/dmytrohas.*apaperhoe/${imgreplace}/" html/volume-$i.html
 	  var=$(grep -n "<p><img src=\"https:.*jpg\|<p><img src=\"https:.*png" html/volume-$i.html | cut -f1 -d: | head -n1)
 	  x=$((x+1))
 	done
