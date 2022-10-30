@@ -1,11 +1,11 @@
-# novel2ebook
-Novel(readlightnovels.net) to eBook Converter
-RUNS ONLY ON LINUX, only supports Volume sorted Novels
+# novel2ebook</br >
+Novel(readlightnovels.net) to eBook Converter</br >
+RUNS ONLY ON LINUX, only supports volume-x sorted novels</br >
 
-Requirements:
-pandoc
-gridsite-clients
-(Ubuntu) sudo apt install pandoc gridsite-clients -y
+Requirements:</br >
+pandoc</br >
+gridsite-clients</br >
+(Ubuntu) sudo apt install pandoc gridsite-clients -y</br >
 
-Run:
+Run:</br >
 run novl2epub.sh, and follow the instructions

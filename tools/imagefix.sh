@@ -12,7 +12,7 @@ do
 	while [ -n "$var1" ]
 	do 
 	  imglink=$(urlencode -d "\"$(awk NR==$var1  html/volume-$i.html | grep -ho "https%3.*\"" )")
-	  imgname=img$i$x.jpg
+	  imgname=img$i_$x.jpg
 	  echo "Download $i"_"$x"
 	  imglink=$(echo "$imglink" | tr -d '"')
 	  curl -0 -s $imglink -o html/media/$imgname
@@ -27,7 +27,7 @@ do
 	while [ -n "$var" ]
 	do 
 	  imglink=$(urlencode -d "\"$(awk NR==$var  html/volume-$i.html | grep -ho "https%3.*\"" )")
-	  imgname=img$i$x.jpg
+	  imgname=img$i_$x.jpg
 	  echo "Download $i"_"$x"
 	  imglink=$(echo "$imglink" | tr -d '"')
 	  curl -0 -s $imglink -o html/media/$imgname
