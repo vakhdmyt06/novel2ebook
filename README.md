@@ -8,4 +8,4 @@ gridsite-clients</br >
 (Ubuntu) sudo apt install pandoc gridsite-clients -y</br >
 
 Run:</br >
-run novl2epub.sh, and follow the instructions
+run 'bash novl2epub.sh', and follow the instructions
