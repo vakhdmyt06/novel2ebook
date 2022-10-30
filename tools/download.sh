@@ -8,7 +8,7 @@ i=1
 echo "# Download Novel HTML"
 while [ $i -lt $chap ]
 do
-    echo "Download Volume-$i"
+    echo "Download $i"
     wget -q $1/volume-$i.html
     i=$((i+1))
 done
@@ -21,4 +21,4 @@ else
 fi
 bash tools/convert.sh $chap
 #bash tools/combine.sh $chap
-echo "# Conversion DONE, files can be found at 'out/volX.epub'"
+echo "## Conversion DONE, files can be found at 'out/volX.epub'"

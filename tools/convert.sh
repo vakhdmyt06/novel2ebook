@@ -11,10 +11,10 @@ do
   echo "- Volume $MYASS"
   cp html/volume-$MYASS.html temp/volume-$MYASS.temp
   sed -i 's/><\/div>/><\/div>\n<p>PAGE<\/p>/g' temp/volume-$MYASS.temp
-  sed -e '1,/<div class="chapter-content">/ d;/<ol>/Q' volume-$MYASS.temp > temp/vol-$MYASS.nvl
+  sed -e '1,/<div class="chapter-content">/ d;/<ol>/Q' temp/volume-$MYASS.temp > temp/vol-$MYASS.nvl
   echo "making epub"
   cd html
-  pandoc --extract-media out/media --request-header User-Agent:"Firefox/106.0"--self-contained -f  html -t epub3 --metadata title="Mushoku Tensei: Jobless Reincarnation | Vol. $MYASS" -o ../out/vol$MYASS.epub ../temp/vol-$MYASS.nvl
+  pandoc --self-contained -f  html -t epub3 --metadata title="Mushoku Tensei: Jobless Reincarnation | Vol. $MYASS" -o ../out/vol$MYASS.epub ../temp/vol-$MYASS.nvl
   cd ..
   #printf "remove "
   #find vol-$MYASS.nvl
