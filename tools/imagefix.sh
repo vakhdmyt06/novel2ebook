@@ -12,30 +12,32 @@ do
 	while [ -n "$var1" ]
 	do 
 	  imglink=$(urlencode -d "\"$(awk NR==$var1  html/volume-$i.html | grep -ho "https%3.*\"" )")
-	  imgname=img$i_$x.jpg
+	  imgname=img$i$x.jpg
 	  echo "Download $i$x"
 	  imglink=$(echo "$imglink" | tr -d '"')
+	  echo " - \"$imglink\""
 	  curl -0 -s $imglink -o html/media/$imgname
 	  imgquote=$(grep -n -E "<li><img src=\"https:.*jpg|<li><img src=\"https:.*png" html/volume-$i.html | grep -ho "width height.*>.*<" | cut -f1 -d: | head -n1)
 	  imgreplac="<li><img src=\"media/$imgname\" $imgquote</li>"
 	  imgreplace=$(printf '%s\n' "$imgreplac" | sed -e 's/[\/&]/\\&/g')
-	  sed -i "${var1}s/<li><img src=\"https:.*/moddilap                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      topping/" html/volume-$i.html
-	  sed -i "${var1}s/moddilap.*topping/${imgreplace}/" html/volume-$i.html
+	  echo " - \"$imgname\""
+	  sed -i "${var1}s/<li><img src=\"https:.*/${imgreplace}                                                                                                                                                                                                                                                                                                  /" html/volume-$i.html
 	  var1=$(grep -n "<li><img src=\"https:.*jpg\|<li><img src=\"https:.*png" html/volume-$i.html | cut -f1 -d: | head -n1)
 	  x=$((x+1))
 	done
 	while [ -n "$var" ]
 	do 
 	  imglink=$(urlencode -d "\"$(awk NR==$var  html/volume-$i.html | grep -ho "https%3.*\"" )")
-	  imgname=img$i_$x.jpg
+	  imgname=img$i$x.jpg
 	  echo "Download $i$x"
 	  imglink=$(echo "$imglink" | tr -d '"')
+	  echo " - \"$imglink\""
 	  curl -0 -s $imglink -o html/media/$imgname
 	  imgquote=$(grep -n -E "<p><img src=\"https:.*jpg|<p><img src=\"https:.*png" html/volume-$i.html | grep -ho "width height.*>.*<" | cut -f1 -d: | head -n1)
 	  imgreplac="<p><img src=\"media/$imgname\" $imgquote</p>"
 	  imgreplace=$(printf '%s\n' "$imgreplac" | sed -e 's/[\/&]/\\&/g')
-	  sed -i "${var}s/<p><img src=\"https:.*/moddilap                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               topping/" html/volume-$i.html
-	  sed -i "${var}s/moddilap.*topping/${imgreplace}/" html/volume-$i.html
+	  echo " - \"$imgname\""
+	  sed -i "${var}s/<p><img src=\"https:.*/${imgreplace}                                                                                                                                                                                                                                                                                                  /" html/volume-$i.html
 	  var=$(grep -n "<p><img src=\"https:.*jpg\|<p><img src=\"https:.*png" html/volume-$i.html | cut -f1 -d: | head -n1)
 	  x=$((x+1))
 	done
