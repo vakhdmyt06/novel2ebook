@@ -13,7 +13,7 @@ do
 	do 
 	  imglink=$(urlencode -d "\"$(awk NR==$var1  html/volume-$i.html | grep -ho "https%3.*\"" )")
 	  imgname=img$i_$x.jpg
-	  echo "Download $i"_"$x"
+	  echo "Download $i$x"
 	  imglink=$(echo "$imglink" | tr -d '"')
 	  curl -0 -s $imglink -o html/media/$imgname
 	  imgquote=$(grep -n -E "<li><img src=\"https:.*jpg|<li><img src=\"https:.*png" html/volume-$i.html | grep -ho "width height.*>.*<" | cut -f1 -d: | head -n1)
@@ -28,7 +28,7 @@ do
 	do 
 	  imglink=$(urlencode -d "\"$(awk NR==$var  html/volume-$i.html | grep -ho "https%3.*\"" )")
 	  imgname=img$i_$x.jpg
-	  echo "Download $i"_"$x"
+	  echo "Download $i$x"
 	  imglink=$(echo "$imglink" | tr -d '"')
 	  curl -0 -s $imglink -o html/media/$imgname
 	  imgquote=$(grep -n -E "<p><img src=\"https:.*jpg|<p><img src=\"https:.*png" html/volume-$i.html | grep -ho "width height.*>.*<" | cut -f1 -d: | head -n1)
