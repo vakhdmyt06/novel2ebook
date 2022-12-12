@@ -2,18 +2,20 @@
 rm -f -r html
 mkdir html
 cd html
-chap=$2
-chap=$((chap+1))
 i=1
+link=$1
 echo "# Download Novel HTML"
-while [ $i -lt $chap ]
+while [ ! -z "$link" ]
 do
     echo "Download $i"
-    wget -q $1/volume-$i.html
+    wget -q $link -O volume-$i.html
+    link=$(grep -o -a -m 1 -h -r "<a class=\"btn btn-success\" id=\"next_chap\" href=\"https://readlightnovels.net/.*html" volume-$i.html | grep -o -a -m 1 -h https.*html)
+    echo $link
     i=$((i+1))
 done
+chap=$i
 cd ../
-if [ "$3" = "1" ];
+if [ "$2" = "1" ];
 then echo "# Skipping image fix"
 else 
 	echo "# Downloading images"

@@ -14,7 +14,7 @@ do
   sed -e '1,/<div class="chapter-content">/ d;/<ol>/Q' temp/volume-$MYASS.temp > temp/vol-$MYASS.nvl
   echo "making epub"
   cd html
-  pandoc --self-contained -f  html -t epub3 --metadata title="Mushoku Tensei: Jobless Reincarnation | Vol. $MYASS" -o ../out/vol$MYASS.epub ../temp/vol-$MYASS.nvl
+  pandoc --self-contained -f  html -t epub3 --metadata title="Novel2Ebook Novel Vol. $MYASS" -o ../out/vol$MYASS.epub ../temp/vol-$MYASS.nvl
   cd ..
   #printf "remove "
   #find vol-$MYASS.nvl
